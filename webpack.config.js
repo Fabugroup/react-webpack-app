@@ -1,20 +1,21 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-module.exports = (env, argv) => {
+module.exports = (env, argv) => ({
 mode: argv.mode || "development",
 entry: "./src/index.jsx",
 
 output: {
 path: path.resolve(__dirname, "dist"),
 filename: "bundle.js",
-publicPath: "/"
+publicPath: "/",
 clean: true,
 },
 
 resolve: {
 extensions: [".js", ".jsx"],
 },
+
 module: {
 rules: [
 {
@@ -42,4 +43,4 @@ port: 3000,
 open: true,
 hot: true,
 },
-};
+});
